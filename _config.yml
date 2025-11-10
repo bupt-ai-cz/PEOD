@@ -1,0 +1,100 @@
+title: "PEOD: Pixel-aligned Event-RGB Object Detection Dataset"
+description: "First large-scale dataset providing synchronized high-resolution event streams and RGB images for object detection under challenging conditions. Features 120+ driving sequences, 340k annotations, and comprehensive benchmarks across multiple modalities."
+theme: jekyll-theme-cayman
+
+# Site settings
+url: "https://EchosLiu.github.io"
+baseurl: "/PEOD-dataset"
+author: "Luoping Cui, Hanqing Liu, Mingjie Liu, wangyuhao, Endian Lin, Dong Hong Jiang, Chuang Zhu"
+email: "EchosLiu@outlook.com"
+
+# SEO and social media settings
+lang: en
+locale: en_US
+image: /assets/images/datasetshow.png
+twitter:
+  username: peod_dataset
+  card: summary_large_image
+facebook:
+  app_id: "PEOD Dataset"
+  publisher: "PEOD Dataset"
+social:
+  name: "PEOD Dataset"
+  links:
+    - https://github.com/EchosLiu/PEOD-dataset
+
+# SEO tags
+tagline: "First large-scale pixel-aligned event-RGB dataset for challenging object detection"
+keywords: "event camera, object detection, computer vision, autonomous driving, dataset, RGB, multimodal, AAAI"
+
+# Google Analytics (when available)
+# google_analytics: UA-XXXXXXXX-X
+
+# GitHub settings
+github:
+  repository_name: PEOD-dataset
+  repository_url: https://github.com/EchosLiu/PEOD-dataset
+  owner_name: EchosLiu
+
+# Jekyll settings
+markdown: kramdown
+highlighter: rouge
+sass:
+  style: compressed
+  sass_dir: _sass
+plugins:
+  - jekyll-sitemap
+  - jekyll-feed
+  - jekyll-seo-tag
+
+# Exclude files from build
+exclude:
+  - Gemfile
+  - Gemfile.lock
+  - node_modules
+  - vendor
+  - .bundle
+  - .sass-cache
+  - .jekyll-cache
+  - "*.pdf"
+
+# Include files
+include:
+  - _pages
+  - assets
+
+# Collections
+collections:
+  pages:
+    output: true
+    permalink: /:name/
+
+# Defaults
+defaults:
+  - scope:
+      path: ""
+      type: "pages"
+    values:
+      layout: "default"
+  - scope:
+      path: ""
+    values:
+      image: /assets/images/datasetshow.png
+
+# Custom variables
+dataset:
+  name: "PEOD"
+  full_name: "Pixel-aligned Event-RGB Object Detection Dataset"
+  version: "1.0"
+  release_year: 2026
+  sequences: "120+"
+  frames: "72k"
+  annotations: "340k"
+  resolution: "1280×720"
+  classes:
+    - car
+    - bus
+    - truck
+    - two-wheeler
+    - three-wheeler
+    - person

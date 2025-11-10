@@ -1,0 +1,862 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>PEOD Dataset - Pixel-aligned Event-RGB Object Detection</title>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    body {
+      font-family: 'Inter', sans-serif;
+      line-height: 1.7;
+      color: #333;
+      background: linear-gradient(rgba(0, 0, 0, 0.4), rgba(0, 0, 0, 0.6)), url('assets/images/datasetshow.png');
+      background-size: cover;
+      background-position: center;
+      background-attachment: fixed;
+      min-height: 100vh;
+    }
+
+    .container {
+      max-width: 1200px;
+      margin: 0 auto;
+      padding: 0 20px;
+    }
+
+    /* Glass morphism navbar */
+    .navbar {
+      position: fixed;
+      top: 0;
+      left: 0;
+      right: 0;
+      background: rgba(255, 255, 255, 0.1);
+      backdrop-filter: blur(20px);
+      border-bottom: 1px solid rgba(255, 255, 255, 0.2);
+      z-index: 1000;
+      padding: 1rem 0;
+      transition: all 0.3s ease;
+    }
+
+    .nav-content {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      max-width: 1200px;
+      margin: 0 auto;
+      padding: 0 20px;
+    }
+
+    .logo {
+      font-size: 1.5rem;
+      font-weight: 700;
+      color: #fff;
+      text-decoration: none;
+    }
+
+    .nav-links {
+      display: flex;
+      list-style: none;
+      gap: 2rem;
+    }
+
+    .nav-links a {
+      color: #000;
+      text-decoration: none;
+      font-weight: 500;
+      transition: all 0.3s ease;
+      padding: 0.5rem 1rem;
+      border-radius: 8px;
+    }
+
+    .nav-links a:hover {
+      background: rgba(255, 255, 255, 0.2);
+      transform: translateY(-2px);
+    }
+
+    /* Hero section */
+    .hero {
+      min-height: 100vh;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      text-align: center;
+      color: #fff;
+      padding-top: 80px;
+    }
+
+    .hero-content {
+      background: rgba(255, 255, 255, 0.1);
+      backdrop-filter: blur(20px);
+      border: 1px solid rgba(255, 255, 255, 0.2);
+      border-radius: 24px;
+      padding: 4rem 3rem;
+      max-width: 800px;
+      animation: fadeInUp 1s ease;
+    }
+
+    .hero h1 {
+      font-size: 3.5rem;
+      font-weight: 700;
+      margin-bottom: 1.5rem;
+      background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      background-clip: text;
+    }
+
+    .hero .subtitle {
+      font-size: 1.3rem;
+      margin-bottom: 2rem;
+      color: rgba(255, 255, 255, 0.9);
+      font-weight: 300;
+    }
+
+    .cta-buttons {
+      display: flex;
+      gap: 1rem;
+      justify-content: center;
+      margin-top: 2rem;
+      flex-wrap: wrap;
+    }
+
+    .btn {
+      padding: 1rem 2rem;
+      border: none;
+      border-radius: 12px;
+      font-weight: 600;
+      text-decoration: none;
+      display: inline-flex;
+      align-items: center;
+      gap: 0.5rem;
+      transition: all 0.3s ease;
+      cursor: pointer;
+      font-size: 1rem;
+    }
+
+    .btn-primary {
+      background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+      color: #fff;
+    }
+
+    .btn-secondary {
+      background: rgba(255, 255, 255, 0.2);
+      color: #fff;
+      border: 1px solid rgba(255, 255, 255, 0.3);
+    }
+
+    .btn:hover {
+      transform: translateY(-3px);
+      box-shadow: 0 10px 25px rgba(0, 0, 0, 0.3);
+    }
+
+    /* Content sections */
+    .section {
+      padding: 5rem 0;
+      position: relative;
+    }
+
+    .glass-card {
+      background: rgba(255, 255, 255, 0.95);
+      backdrop-filter: blur(20px);
+      border: 1px solid rgba(255, 255, 255, 0.3);
+      border-radius: 20px;
+      padding: 3rem;
+      margin-bottom: 2rem;
+      box-shadow: 0 8px 32px rgba(0, 0, 0, 0.1);
+      transition: all 0.3s ease;
+    }
+
+    .glass-card:hover {
+      transform: translateY(-5px);
+      box-shadow: 0 15px 40px rgba(0, 0, 0, 0.15);
+    }
+
+    .section-title {
+      font-size: 2.5rem;
+      font-weight: 700;
+      margin-bottom: 1.5rem;
+      color: #2c3e50;
+      text-align: center;
+    }
+
+    .section-subtitle {
+      font-size: 1.2rem;
+      color: #666;
+      text-align: center;
+      margin-bottom: 3rem;
+      max-width: 600px;
+      margin-left: auto;
+      margin-right: auto;
+    }
+
+    /* Stats grid */
+    .stats-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+      gap: 2rem;
+      margin: 3rem 0;
+    }
+
+    .stat-card {
+      background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+      color: #fff;
+      padding: 2rem;
+      border-radius: 16px;
+      text-align: center;
+      transform: scale(1);
+      transition: all 0.3s ease;
+    }
+
+    .stat-card:hover {
+      transform: scale(1.05);
+    }
+
+    .stat-number {
+      font-size: 3rem;
+      font-weight: 700;
+      display: block;
+      margin-bottom: 0.5rem;
+    }
+
+    .stat-label {
+      font-size: 1.1rem;
+      opacity: 0.9;
+    }
+
+    /* Feature grid */
+    .feature-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+      gap: 2rem;
+      margin: 3rem 0;
+    }
+
+    .feature-card {
+      background: #fff;
+      padding: 2rem;
+      border-radius: 16px;
+      text-align: center;
+      box-shadow: 0 4px 20px rgba(0, 0, 0, 0.08);
+      transition: all 0.3s ease;
+      border: 1px solid rgba(0, 0, 0, 0.05);
+    }
+
+    .feature-card:hover {
+      transform: translateY(-5px);
+      box-shadow: 0 8px 30px rgba(0, 0, 0, 0.15);
+    }
+
+    .feature-icon {
+      font-size: 3rem;
+      margin-bottom: 1rem;
+      background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      background-clip: text;
+    }
+
+    .feature-title {
+      font-size: 1.3rem;
+      font-weight: 600;
+      margin-bottom: 1rem;
+      color: #2c3e50;
+    }
+
+    /* Table styling */
+    table {
+      width: 100%;
+      border-collapse: collapse;
+      margin: 2rem 0;
+      background: #fff;
+      border-radius: 12px;
+      overflow: hidden;
+      box-shadow: 0 4px 20px rgba(0, 0, 0, 0.08);
+    }
+
+    table th {
+      background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+      color: #fff;
+      padding: 1rem;
+      font-weight: 600;
+      text-align: left;
+    }
+
+    table td {
+      padding: 1rem;
+      border-bottom: 1px solid #eee;
+    }
+
+    table tr:hover {
+      background: #f8f9fa;
+    }
+
+    /* Code block styling */
+    .code-block {
+      background: #1e1e1e;
+      color: #d4d4d4;
+      padding: 2rem;
+      border-radius: 12px;
+      font-family: 'JetBrains Mono', 'Courier New', monospace;
+      overflow-x: auto;
+      margin: 2rem 0;
+      box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
+    }
+
+    .code-block pre {
+      margin: 0;
+      line-height: 1.6;
+    }
+
+    /* Single image card styling */
+    .image-card {
+      background: #fff;
+      border-radius: 16px;
+      overflow: hidden;
+      box-shadow: 0 4px 20px rgba(0, 0, 0, 0.08);
+      transition: all 0.3s ease;
+      margin-bottom: 3rem;
+    }
+
+    .image-card:hover {
+      transform: translateY(-5px);
+      box-shadow: 0 8px 30px rgba(0, 0, 0, 0.15);
+    }
+
+    .image-card img {
+      width: 100%;
+      height: auto;
+      display: block;
+    }
+
+    .image-card .caption {
+      padding: 1.5rem;
+      font-size: 1rem;
+      color: #666;
+      line-height: 1.6;
+    }
+
+    .image-card .caption strong {
+      color: #2c3e50;
+      display: block;
+      margin-bottom: 0.5rem;
+    }
+
+    /* Footer */
+    .footer {
+      background: rgba(0, 0, 0, 0.8);
+      backdrop-filter: blur(20px);
+      color: #fff;
+      padding: 3rem 0;
+      text-align: center;
+    }
+
+    .footer-content {
+      max-width: 800px;
+      margin: 0 auto;
+    }
+
+    .footer h3 {
+      margin-bottom: 1rem;
+      font-size: 1.5rem;
+    }
+
+    .footer p {
+      margin-bottom: 0.5rem;
+      opacity: 0.8;
+    }
+
+    /* Highlight box for important info */
+    .highlight-box {
+      background: linear-gradient(135deg, #fff5e6 0%, #ffe6cc 100%);
+      border: 1px solid #ffb366;
+      border-radius: 12px;
+      padding: 1.5rem;
+      margin: 2rem 0;
+      text-align: center;
+    }
+
+    .highlight-box .highlight-number {
+      font-size: 2rem;
+      font-weight: 700;
+      color: #e67e22;
+      display: block;
+    }
+
+    /* Animations */
+    @keyframes fadeInUp {
+      from {
+        opacity: 0;
+        transform: translateY(30px);
+      }
+      to {
+        opacity: 1;
+        transform: translateY(0);
+      }
+    }
+
+    .fade-in {
+      animation: fadeInUp 0.8s ease;
+    }
+
+    /* Responsive design */
+    @media (max-width: 768px) {
+      .hero h1 {
+        font-size: 2.5rem;
+      }
+      
+      .hero .subtitle {
+        font-size: 1.1rem;
+      }
+
+      .hero-content {
+        padding: 2rem 1.5rem;
+        margin: 0 1rem;
+      }
+
+      .nav-links {
+        display: none;
+      }
+
+      .stats-grid {
+        grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+      }
+
+      .feature-grid {
+        grid-template-columns: 1fr;
+      }
+    }
+
+    /* Scroll animations */
+    .section {
+      opacity: 0;
+      transform: translateY(30px);
+      transition: all 0.8s ease;
+    }
+
+    .section.visible {
+      opacity: 1;
+      transform: translateY(0);
+    }
+  </style>
+</head>
+<body>
+  <!-- Navigation -->
+  <nav class="navbar">
+    <div class="nav-content">
+      <a href="#" class="logo">PEOD Dataset</a>
+      <ul class="nav-links">
+        <li><a href="#overview">Overview</a></li>
+        <li><a href="#camera-system">Camera System</a></li>
+        <li><a href="#visualizations">Visualizations</a></li>
+        <li><a href="#download">Download</a></li>
+        <li><a href="#citation">Citation</a></li>
+      </ul>
+    </div>
+  </nav>
+
+  <!-- Hero Section -->
+  <section class="hero">
+    <div class="hero-content">
+      <h1>PEOD Dataset</h1>
+      <p class="subtitle">Pixel-aligned Event-RGB Object Detection under Challenging Scenarios</p>
+      <p>The first large-scale multimodal benchmark providing synchronized high-resolution event streams and RGB images for object detection under extreme conditions</p>
+      <div class="cta-buttons">
+        <a href="#download" class="btn btn-primary">
+          <i class="fas fa-download"></i>
+          Download Dataset
+        </a>
+        <a href="#overview" class="btn btn-secondary">
+          <i class="fas fa-info-circle"></i>
+          Learn More
+        </a>
+      </div>
+    </div>
+  </section>
+
+  <!-- Overview Section -->
+  <section id="overview" class="section">
+    <div class="container">
+      <div class="glass-card">
+        <h2 class="section-title">Dataset Overview</h2>
+        <p class="section-subtitle">
+          PEOD addresses critical limitations in existing Event-RGB datasets: sparse coverage of extreme conditions and low spatial resolution (≤640×480)
+        </p>
+
+        <div class="highlight-box">
+          <span class="highlight-number">57%</span>
+          <p>of data captured under challenging conditions (low-light, overexposure, high-speed motion)</p>
+        </div>
+
+        <div class="stats-grid">
+          <div class="stat-card">
+            <span class="stat-number">120+</span>
+            <span class="stat-label">Synchronized Sequences</span>
+          </div>
+          <div class="stat-card">
+            <span class="stat-number">340K</span>
+            <span class="stat-label">Verified Bounding Boxes</span>
+          </div>
+          <div class="stat-card">
+            <span class="stat-number">72K</span>
+            <span class="stat-label">High-Quality Data Pairs</span>
+          </div>
+          <div class="stat-card">
+            <span class="stat-number">1280×720</span>
+            <span class="stat-label">High Resolution</span>
+          </div>
+          <div class="stat-card">
+            <span class="stat-number">>87dB</span>
+            <span class="stat-label">High Dynamic Range</span>
+          </div>
+          <div class="stat-card">
+            <span class="stat-number">30Hz</span>
+            <span class="stat-label">Annotation Frequency</span>
+          </div>
+        </div>
+
+        <div class="feature-grid">
+          <div class="feature-card">
+            <div class="feature-icon">
+              <i class="fas fa-camera"></i>
+            </div>
+            <h3 class="feature-title">Coaxial Dual-Camera System</h3>
+            <p>True pixel-level spatial alignment and microsecond-level temporal synchronization using beam-splitter optical system</p>
+          </div>
+          <div class="feature-card">
+            <div class="feature-icon">
+              <i class="fas fa-road"></i>
+            </div>
+            <h3 class="feature-title">Challenging Environments</h3>
+            <p>Urban, suburban, and tunnel environments with 60% data under extreme conditions (low-light, overexposed, high-velocity)</p>
+          </div>
+          <div class="feature-card">
+            <div class="feature-icon">
+              <i class="fas fa-tags"></i>
+            </div>
+            <h3 class="feature-title">Six Object Classes</h3>
+            <p>Meticulously verified annotations for car, bus, truck, two-wheeler, three-wheeler, and person</p>
+          </div>
+          <div class="feature-card">
+            <div class="feature-icon">
+              <i class="fas fa-clock"></i>
+            </div>
+            <h3 class="feature-title">Microsecond Precision</h3>
+            <p>Hardware signal generator ensures microsecond-level synchronization between RGB and event cameras</p>
+          </div>
+        </div>
+
+        <table>
+          <thead>
+            <tr>
+              <th>Split</th>
+              <th>Sequences</th>
+              <th>Frames</th>
+              <th>Bounding Boxes</th>
+              <th>Conditions</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td>Training</td>
+              <td>~85</td>
+              <td>~57,000</td>
+              <td>270k</td>
+              <td>Diverse illumination & motion conditions</td>
+            </tr>
+            <tr>
+              <td>Test</td>
+              <td>~35</td>
+              <td>~15,000</td>
+              <td>70k</td>
+              <td>Held-out sequences for benchmarking</td>
+            </tr>
+            <tr>
+              <td><strong>Total</strong></td>
+              <td><strong>120+</strong></td>
+              <td><strong>72k</strong></td>
+              <td><strong>340k</strong></td>
+              <td>Complete dataset coverage</td>
+            </tr>
+          </tbody>
+        </table>
+
+        <h3 style="margin-top: 4rem; margin-bottom: 2rem; color: #2c3e50; text-align: center; font-size: 2rem;">Challenging Scenarios Showcase</h3>
+        <p style="text-align: center; color: #666; margin-bottom: 3rem; font-size: 1.1rem;">
+          Representative examples demonstrating the limitations of conventional cameras and the advantages of event-based sensing
+        </p>
+        
+        <div class="image-card" style="margin-bottom: 2rem;">
+          <img src="assets/images/datasetshow.png" alt="PEOD dataset challenging scenarios showcase">
+          <div class="caption">
+            <strong>Challenging Scenarios from PEOD Dataset</strong>
+            These examples demonstrate sensor failure scenarios where conventional frame-based cameras struggle: <em>(Top and third rows)</em> Overexposure in high dynamic range scenes leading to complete information loss; <em>(Second row)</em> Motion blur from high-speed movement; <em>(Bottom row)</em> Extreme low-light conditions with severe underexposure. In contrast to the degraded RGB images, the event-based streams (left side of each pair) consistently preserve crucial structural details and object boundaries, enabling robust detection even under these extreme conditions. This showcases the complementary nature of the two modalities and the critical importance of multimodal fusion for all-weather perception systems.
+          </div>
+        </div>
+
+        <div class="feature-grid" style="margin-top: 3rem;">
+          <div class="feature-card">
+            <div class="feature-icon">
+              <i class="fas fa-eye-slash"></i>
+            </div>
+            <h3 class="feature-title">Overexposure Resilience</h3>
+            <p>Event cameras maintain object visibility when RGB sensors saturate under bright lighting conditions</p>
+          </div>
+          <div class="feature-card">
+            <div class="feature-icon">
+              <i class="fas fa-tachometer-alt"></i>
+            </div>
+            <h3 class="feature-title">Motion Blur Immunity</h3>
+            <p>High temporal resolution eliminates motion blur artifacts that degrade conventional camera performance</p>
+          </div>
+          <div class="feature-card">
+            <div class="feature-icon">
+              <i class="fas fa-moon"></i>
+            </div>
+            <h3 class="feature-title">Low-Light Excellence</h3>
+            <p>Superior performance in extreme low-light where RGB cameras fail to capture meaningful information</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Camera System Section -->
+  <section id="camera-system" class="section">
+    <div class="container">
+      <div class="glass-card">
+        <h2 class="section-title">Dual-Camera Acquisition System</h2>
+        <p class="section-subtitle">
+          Our custom coaxial optical system ensures pixel-perfect alignment and precise synchronization
+        </p>
+        
+        <div class="image-card">
+          <img src="assets/images/camera_preview.png" alt="Coaxial dual-camera system setup">
+          <div class="caption">
+            <strong>Coaxial Imaging System</strong>
+            Our acquisition system utilizes a JCOPTIX OSB25R55-T5 non-polarizing plate beam splitter (50:50 split ratio) and MCC1-1S 10mm coaxial cube. The system comprises a Prophesee EVK4 HD event camera (1280×720) and Hikvision MV-CS050-10UC industrial RGB camera (2448×2048, 60fps), both equipped with identical Hikvision 25mm C-mount fixed-focal-length lenses for consistent imaging characteristics.
+          </div>
+        </div>
+
+        <div class="feature-grid">
+          <div class="feature-card">
+            <div class="feature-icon">
+              <i class="fas fa-sync"></i>
+            </div>
+            <h3 class="feature-title">Hardware Synchronization</h3>
+            <p>Single square-wave signal generator provides hardware trigger pulses to both cameras for microsecond-level accuracy</p>
+          </div>
+          <div class="feature-card">
+            <div class="feature-icon">
+              <i class="fas fa-align-center"></i>
+            </div>
+            <h3 class="feature-title">Pixel-Level Alignment</h3>
+            <p>Shared optical path enables true pixel-level spatial alignment through standard stereo rectification</p>
+          </div>
+          <div class="feature-card">
+            <div class="feature-icon">
+              <i class="fas fa-cog"></i>
+            </div>
+            <h3 class="feature-title">Identical Optics</h3>
+            <p>Both cameras use identical lenses and fixed aperture settings to eliminate focal length and distortion discrepancies</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Visualizations Section -->
+  <section id="visualizations" class="section">
+    <div class="container">
+      <div class="glass-card">
+        <h2 class="section-title">Dataset Statistics & Visualizations</h2>
+        <p class="section-subtitle">
+          Comprehensive analysis of data distribution and sample annotations from challenging scenarios
+        </p>
+        
+        <div class="image-card">
+          <img src="assets/images/datasta_preview.png" alt="Dataset statistics and sample visualizations">
+          <div class="caption">
+            <strong>Dataset Statistics and Challenging Scenarios</strong>
+            The figure shows the temporal distribution of our dataset with 57.1% captured under challenging illumination conditions, alongside sample aligned Event-RGB pairs from diverse driving scenarios. Our data includes urban roads, suburban areas, complex intersections, underpasses, tunnels, and highways captured continuously from 04:00 to 24:00, covering the full spectrum of lighting conditions from dawn to nighttime.
+          </div>
+        </div>
+
+        <div class="feature-grid">
+          <div class="feature-card">
+            <div class="feature-icon">
+              <i class="fas fa-chart-bar"></i>
+            </div>
+            <h3 class="feature-title">Illumination Analysis</h3>
+            <p>Quantitative classification using under-exposure (S_LL) and over-exposure (S_OE) scores based on pixel saturation</p>
+          </div>
+          <div class="feature-card">
+            <div class="feature-icon">
+              <i class="fas fa-moon"></i>
+            </div>
+            <h3 class="feature-title">Low-Light Conditions</h3>
+            <p>Extensive coverage of challenging scenarios where conventional cameras fail but event cameras excel</p>
+          </div>
+          <div class="feature-card">
+            <div class="feature-icon">
+              <i class="fas fa-sun"></i>
+            </div>
+            <h3 class="feature-title">Overexposure Scenarios</h3>
+            <p>High dynamic range scenes demonstrating the >87dB HDR advantage of event cameras over RGB sensors</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+
+  <!-- Download Section -->
+  <section id="download" class="section">
+    <div class="container">
+      <div class="glass-card">
+        <h2 class="section-title">Dataset Download</h2>
+        <p class="section-subtitle">
+          The PEOD dataset will be publicly released soon.
+        </p>
+        
+        <div style="text-align: center; padding: 2rem 0;">
+          <div style="background: linear-gradient(135deg, #667eea 0%, #764ba2 100%); color: white; padding: 2rem; border-radius: 16px; display: inline-block; margin-bottom: 2rem;">
+            <i class="fas fa-hourglass-half" style="font-size: 3rem; margin-bottom: 1rem;"></i>
+            <h3>Coming Soon</h3>
+            <p>Dataset will be released soon</p>
+          </div>
+        </div>
+
+        <div class="feature-grid">
+          <div class="feature-card">
+            <div class="feature-icon">
+              <i class="fas fa-database"></i>
+            </div>
+            <h3 class="feature-title">Multiple Formats</h3>
+            <p>Event data in RAW and DAT formats, annotations in NumPy format</p>
+          </div>
+          <div class="feature-card">
+            <div class="feature-icon">
+              <i class="fas fa-download"></i>
+            </div>
+            <h3 class="feature-title">Easy Access</h3>
+            <p>Download links and documentation will be provided here</p>
+          </div>
+          <div class="feature-card">
+            <div class="feature-icon">
+              <i class="fas fa-code"></i>
+            </div>
+            <h3 class="feature-title">Code & Tools</h3>
+            <p>Evaluation scripts and baseline implementations included</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Citation Section -->
+  <section id="citation" class="section">
+    <div class="container">
+      <div class="glass-card">
+        <h2 class="section-title">Citation</h2>
+        <p class="section-subtitle">
+          If you use PEOD in your research, please cite our paper (forthcoming)
+        </p>
+
+        <div class="highlight-box">
+          <p><strong>Status:</strong> Accepted at AAAI 2026</p>
+        </div>
+
+        <div class="code-block">
+          <pre><code>@inproceedings{PEOD2026,
+  title     = {PEOD: Pixel-aligned High-Resolution Event-RGB Dataset for Challenging Object Detection},
+  author    = {[Authors]},
+  booktitle = {Proceedings of the AAAI Conference on Artificial Intelligence},
+  year      = {2026},
+  note      = {Accepted}
+}</code></pre>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Footer -->
+  <footer class="footer">
+    <div class="container">
+      <div class="footer-content">
+        <h3>PEOD Dataset</h3>
+        <p>Advancing object detection research through multimodal event-RGB data</p>
+        <p style="margin-top: 2rem;">
+          <a href="assets/pdfs/camera.pdf" style="color: #667eea; text-decoration: none; margin-right: 2rem;">
+            <i class="fas fa-file-pdf"></i> Camera System Details
+          </a>
+          <a href="assets/pdfs/datasta.pdf" style="color: #667eea; text-decoration: none;">
+            <i class="fas fa-chart-bar"></i> Dataset Statistics
+          </a>
+        </p>
+        <p style="margin-top: 1rem; opacity: 0.7;">
+          © 2025 PEOD Dataset. Released under MIT License.
+        </p>
+      </div>
+    </div>
+  </footer>
+
+  <script>
+    // Smooth scrolling for navigation links
+    document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+      anchor.addEventListener('click', function (e) {
+        e.preventDefault();
+        const target = document.querySelector(this.getAttribute('href'));
+        if (target) {
+          target.scrollIntoView({
+            behavior: 'smooth',
+            block: 'start'
+          });
+        }
+      });
+    });
+
+    // Navbar background on scroll
+    window.addEventListener('scroll', () => {
+      const navbar = document.querySelector('.navbar');
+      if (window.scrollY > 100) {
+        navbar.style.background = 'rgba(255, 255, 255, 0.95)';
+        navbar.style.color = '#333';
+      } else {
+        navbar.style.background = 'rgba(255, 255, 255, 0.1)';
+        navbar.style.color = '#fff';
+      }
+    });
+
+    // Intersection Observer for scroll animations
+    const observerOptions = {
+      threshold: 0.1,
+      rootMargin: '0px 0px -50px 0px'
+    };
+
+    const observer = new IntersectionObserver((entries) => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          entry.target.classList.add('visible');
+        }
+      });
+    }, observerOptions);
+
+    // Observe all sections
+    document.querySelectorAll('.section').forEach(section => {
+      observer.observe(section);
+    });
+
+    // Add loading animation
+    window.addEventListener('load', () => {
+      document.body.style.opacity = '1';
+    });
+  </script>
+</body>
+</html>

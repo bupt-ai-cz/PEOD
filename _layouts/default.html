@@ -1,0 +1,180 @@
+<!DOCTYPE html>
+<html lang="{{ site.lang | default: "en-US" }}">
+  <head>
+    <meta charset="UTF-8">
+
+{% seo %}
+    <link rel="preconnect" href="https://fonts.gstatic.com">
+    <link rel="preload" href="https://fonts.googleapis.com/css?family=Open+Sans:400,700&display=swap" as="style" type="text/css" crossorigin>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="theme-color" content="#157878">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+    <link rel="stylesheet" href="{{ '/assets/css/style.css?v=' | append: site.github.build_revision | relative_url }}">
+    {% include head-custom.html %}
+    
+    <style>
+      /* Custom styles for academic presentation */
+      .page-header {
+        background: linear-gradient(135deg, #155799, #159957);
+        padding: 3rem 0;
+      }
+      
+      .project-name {
+        font-size: 2.5rem;
+        font-weight: 700;
+        margin-bottom: 0.5rem;
+      }
+      
+      .project-tagline {
+        font-size: 1.2rem;
+        opacity: 0.9;
+        margin-bottom: 2rem;
+      }
+      
+      .main-content {
+        max-width: 1000px;
+        margin: 0 auto;
+        padding: 2rem;
+        line-height: 1.6;
+      }
+      
+      .main-content h1 {
+        color: #155799;
+        border-bottom: 3px solid #159957;
+        padding-bottom: 0.5rem;
+        margin-top: 2rem;
+      }
+      
+      .main-content h2 {
+        color: #155799;
+        margin-top: 2rem;
+        margin-bottom: 1rem;
+      }
+      
+      .main-content h3 {
+        color: #333;
+        margin-top: 1.5rem;
+      }
+      
+      .main-content table {
+        border-collapse: collapse;
+        width: 100%;
+        margin: 1rem 0;
+        box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+        border-radius: 8px;
+        overflow: hidden;
+      }
+      
+      .main-content table th {
+        background: linear-gradient(135deg, #155799, #159957);
+        color: white;
+        padding: 1rem;
+        text-align: left;
+        font-weight: 600;
+      }
+      
+      .main-content table td {
+        padding: 0.8rem 1rem;
+        border-bottom: 1px solid #eee;
+      }
+      
+      .main-content table tr:nth-child(even) {
+        background-color: #f8f9fa;
+      }
+      
+      .main-content table tr:hover {
+        background-color: #e3f2fd;
+      }
+      
+      .main-content pre {
+        background: #f6f8fa;
+        border: 1px solid #e1e4e8;
+        border-radius: 6px;
+        padding: 1rem;
+        overflow-x: auto;
+        margin: 1rem 0;
+      }
+      
+      .main-content code {
+        background: #f6f8fa;
+        padding: 0.2rem 0.4rem;
+        border-radius: 3px;
+        font-size: 0.9em;
+      }
+      
+      .main-content pre code {
+        background: none;
+        padding: 0;
+      }
+      
+      .main-content img {
+        max-width: 100%;
+        height: auto;
+        border-radius: 8px;
+        box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+        margin: 1rem 0;
+      }
+      
+      .main-content blockquote {
+        background: #e3f2fd;
+        border-left: 4px solid #2196f3;
+        padding: 1rem 1.5rem;
+        margin: 1rem 0;
+        border-radius: 0 4px 4px 0;
+      }
+      
+      /* Badge styles */
+      .main-content img[alt*="badge"] {
+        box-shadow: none;
+        margin: 0.2rem;
+        border-radius: 4px;
+      }
+      
+      /* Responsive design */
+      @media (max-width: 768px) {
+        .project-name {
+          font-size: 2rem;
+        }
+        
+        .main-content {
+          padding: 1rem;
+        }
+        
+        .main-content table {
+          font-size: 0.9rem;
+        }
+        
+        .main-content table th,
+        .main-content table td {
+          padding: 0.5rem;
+        }
+      }
+    </style>
+  </head>
+  <body>
+    <a id="skip-to-content" href="#content">Skip to the content.</a>
+
+    <header class="page-header" role="banner">
+      <h1 class="project-name">{{ page.title | default: site.title | default: site.github.repository_name }}</h1>
+      <h2 class="project-tagline">{{ page.description | default: site.description | default: site.github.project_tagline }}</h2>
+      {% if site.github.is_project_page %}
+        <a href="{{ site.github.repository_url }}" class="btn">View on GitHub</a>
+      {% endif %}
+      {% if site.show_downloads %}
+        <a href="{{ site.github.zip_url }}" class="btn">Download .zip</a>
+        <a href="{{ site.github.tar_url }}" class="btn">Download .tar.gz</a>
+      {% endif %}
+    </header>
+
+    <main id="content" class="main-content" role="main">
+      {{ content }}
+
+      <footer class="site-footer">
+        {% if site.github.is_project_page %}
+          <span class="site-footer-owner"><a href="{{ site.github.repository_url }}">{{ site.github.repository_name }}</a> is maintained by <a href="{{ site.github.owner_url }}">{{ site.github.owner_name }}</a>.</span>
+        {% endif %}
+        <span class="site-footer-credits">This page was generated by <a href="https://pages.github.com">GitHub Pages</a>.</span>
+      </footer>
+    </main>
+  </body>
+</html>
