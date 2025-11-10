@@ -1,4 +1,6 @@
-<img width="466" height="48" alt="image" src="https://github.com/user-attachments/assets/50cf6525-0ef7-42ca-ba6e-cbcb6790b8c9" /># PEOD: A Pixel-Aligned Event-RGB Benchmark for Object Detection under Challenging Conditions
+# PEOD: A Pixel-Aligned Event-RGB Benchmark for Object Detection under Challenging Conditions
+
+<div align="center"
 
 <div align="center">
 
