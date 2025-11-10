@@ -1,4 +1,4 @@
-# PEOD: A Pixel-Aligned Event-RGB Benchmark for Object Detection under Challenging Conditions
+<img width="466" height="48" alt="image" src="https://github.com/user-attachments/assets/50cf6525-0ef7-42ca-ba6e-cbcb6790b8c9" /># PEOD: A Pixel-Aligned Event-RGB Benchmark for Object Detection under Challenging Conditions
 
 <div align="center">
 
@@ -127,7 +127,7 @@ For questions, suggestions, or collaboration opportunities:
 
 - **Project Page**: [https://EchosLiu.github.io/PEOD-dataset/](https://EchosLiu.github.io/PEOD-dataset/)
 - **Issues**: Please use GitHub Issues for technical questions
-- **Email**: lpcui@bupt.edu.cn
+- **Email**: 3254827845@qq.com；3371665749@qq.com；786896078@qq.com
 
 ---
 
