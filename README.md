@@ -42,31 +42,41 @@
 | **Classes** | 6 | car, bus, truck, two-wheeler, three-wheeler, person |
 | **Dynamic Range** | >87 dB | Event camera HDR capability |
 
-### 📈 Data Distribution
-
-| **Split** | **Annotations** | **Characteristics** |
-|-----------|-----------------|-------------------|
-| **Training** | 270k boxes | Diverse illumination & motion conditions |
-| **Testing** | 70k boxes | Held-out sequences for benchmarking |
-
-
 ## 📁 Dataset Structure
 
 ```
 PEOD/
-├── train/
-│   ├── sequence_001/
-│   │   ├── rgb/              # RGB frames (PNG format)
-│   │   ├── events.dat        # Event stream data
-│   │   └── boxes.npy         # Bounding box annotations
-│   ├── sequence_002/
-│   └── ...
-├── test/
+├── rgb/
+│   ├── train/
+│   │   ├── sequence_001             # the first RGB sequence
+│   │   │   ├── sequence_001_0001.png          # the first RGB frame
+│   │   │   ├── sequence_001_0001.png          # the second RGB frame
+│   │   │   └── ...
+│   │   ├── sequence_002                       # the second RGB sequence
+│   │   └── ...                                
+│   └── test/
+│   │   ├── challenge/                         # the Illumination Challenge Subset
+│   │   │   ├── sequence_001_test              # the first illumination challenge sequence
+│   │   │   └── ...
+│   │   └── nromal/                            # the Normal Subset
+│   │   │   ├── sequence_013_test              # the first normal sequence
+│   │   │   └── ...
+├── event/
+│   ├── train/
+│   │   ├── sequence_001.dat              
+│   │   ├── sequence_002.dat
+│   │   └── ...              
+│   └── test/
+│   │   ├── challenge/                         
+│   │   │   ├── sequence_001_test.dat          
+│   │   │   └── ...
+│   │   └── nromal/                            
+│   │   │   ├── sequence_013_test.dat            
+│   │   │   └── ...
+├── timestamp/
 │   └── [similar structure]
-└── metadata/
-    ├── class_names.txt       # Object class definitions
-    ├── statistics.json       # Dataset statistics
-    └── splits.json          # Train/test split information
+└── annotations/
+    └── [similar structure]
 ```
 
 ## 🎯 Object Classes
@@ -76,11 +86,12 @@ The dataset includes six carefully selected object classes relevant to autonomou
 | **Class** | **Description** | **Typical Scenarios** |
 |-----------|-----------------|----------------------|
 | **Car** | Standard passenger vehicles | Urban/suburban driving |
+| **Person** | Pedestrians | Crosswalks, sidewalks |
 | **Bus** | Public transportation vehicles | City centers, bus routes |
 | **Truck** | Commercial vehicles | Highways, industrial areas |
 | **Two-wheeler** | Motorcycles, bicycles | Urban intersections |
 | **Three-wheeler** | Auto-rickshaws, tricycles | Developing urban areas |
-| **Person** | Pedestrians | Crosswalks, sidewalks |
+
 
 ## 🌟 Unique Features
 
@@ -100,7 +111,7 @@ Our coaxial dual-camera system ensures precise spatial correspondence between ev
 
 ## 📥 Download & Access
 
-> 🚧 **Dataset Release**: The PEOD dataset will be publicly available soon. Please check our [project page](https://EchosLiu.github.io/PEOD-dataset/) for the latest updates.
+> 🚧 **Dataset Release**: The PEOD dataset will be publicly available soon. Please check our [Baidu Netdisk](https://EchosLiu.github.io/PEOD-dataset/) for the latest updates.
 
 **Planned Formats:**
 - **RAW format**: Unprocessed event and RGB data
@@ -112,7 +123,12 @@ Our coaxial dual-camera system ensures precise spatial correspondence between ev
 If you use PEOD in your research, please cite our paper(forthcoming):
 
 ```bibtex
-Forthcoming
+@article{cui2025peod,
+  title={PEOD: A Pixel-Aligned Event-RGB Benchmark for Object Detection under Challenging Conditions},
+  author={Cui, Luoping and Liu, Hanqing and Liu, Mingjie and Lin, Endian and Jiang, Donghong and Wang, Yuhao and Zhu, Chuang},
+  journal={arXiv preprint arXiv:2511.08140},
+  year={2025}
+}
 ```
 
 ## 🤝 Contributing
