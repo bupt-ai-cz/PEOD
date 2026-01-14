@@ -137,7 +137,7 @@ We welcome contributions to improve the dataset and benchmark! Please see our [p
 
 ## 📄 License
 
-This dataset is released under MIT License. Please refer to our [project page](https://EchosLiu.github.io/PEOD-dataset/) for detailed licensing information.
+This dataset is released under MIT License. Please refer to our [License](https://github.com/bupt-ai-cz/PEOD/blob/main/Term%20of%20Use%20and%20License.md) for detailed licensing information.
 
 ## 📞 Contact
 
