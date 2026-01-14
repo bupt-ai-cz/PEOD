@@ -109,14 +109,9 @@ Our coaxial dual-camera system ensures precise spatial correspondence between ev
 - **Motion blur immunity**: Sharp perception during rapid movement
 - **Low latency**: Real-time perception capabilities
 
-## 📥 Download & Access
+## 📥 Download
 
-> 🚧 **Dataset Release**: The PEOD dataset will be publicly available soon. Please check our [Baidu Netdisk](https://EchosLiu.github.io/PEOD-dataset/) for the latest updates.
-
-**Planned Formats:**
-- **RAW format**: Unprocessed event and RGB data
-- **DAT format**: Preprocessed event representations
-- **Annotations**: NumPy arrays with bounding box coordinates
+> 🚧 **Dataset Download**: The PEOD dataset will be publicly available soon. Please check our [Baidu Netdisk](https://EchosLiu.github.io/PEOD-dataset/) for the latest updates.
 
 ## 📚 Citation
 
@@ -145,7 +140,7 @@ For questions, suggestions, or collaboration opportunities:
 
 - **Project Page**: [https://EchosLiu.github.io/PEOD-dataset/](https://EchosLiu.github.io/PEOD-dataset/)
 - **Issues**: Please use GitHub Issues for technical questions
-- **Email**: 3254827845@qq.com；3371665749@qq.com；786896078@qq.com
+- **Email**: 3254827845@qq.com；3371665749@qq.com；786896078@qq.com；czhu@bupt.edu.cn
 
 ---
 
