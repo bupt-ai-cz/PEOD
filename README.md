@@ -48,7 +48,7 @@
 PEOD/
 ├── rgb/
 │   ├── train/
-│   │   ├── sequence_001             # the first RGB sequence
+│   │   ├── sequence_001                       # the first RGB sequence
 │   │   │   ├── sequence_001_0001.png          # the first RGB frame
 │   │   │   ├── sequence_001_0001.png          # the second RGB frame
 │   │   │   └── ...
