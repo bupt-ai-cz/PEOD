@@ -111,7 +111,7 @@ Our coaxial dual-camera system ensures precise spatial correspondence between ev
 
 ## 📥 Download
 
-> 🚧 **Dataset Download**: The PEOD dataset will be publicly available soon. Please check our [Baidu Netdisk](https://EchosLiu.github.io/PEOD-dataset/) for the latest updates.
+> 🚧 **Dataset Download**: The PEOD dataset can be downloaded from [Baidu Netdisk](https://pan.baidu.com/s/1Mj4tpGBFzSyhz6dZX0dDrw?pwd=g97d).
 
 ## 📚 Citation
 
