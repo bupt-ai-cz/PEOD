@@ -9,7 +9,7 @@ description: "First large-scale pixel-aligned event-RGB dataset for challenging 
 # PEOD: Pixel‑aligned Event‑RGB Object Detection Dataset
 
 [![AAAI 2026](https://img.shields.io/badge/AAAI-2026-red?style=flat-square)](https://aaai.org/conference/aaai/aaai-26/)
-[![Dataset](https://img.shields.io/badge/Dataset%20Soon-green?style=flat-square)](#download)
+[![Dataset](https://img.shields.io/static/v1?label=Dataset&message=%E2%80%8B&color=green&style=flat-square)](https://pan.baidu.com/s/1Mj4tpGBFzSyhz6dZX0dDrw?pwd=g97d)
 [![GitHub](https://img.shields.io/github/stars/PEOD-dataset/PEOD-dataset?style=flat-square&logo=github)](https://github.com/EchosLiu/PEOD-dataset)
 
 **First large-scale dataset with synchronized high-resolution event streams and RGB images**
