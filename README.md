@@ -115,7 +115,7 @@ Our coaxial dual-camera system ensures precise spatial correspondence between ev
 
 ## 📚 Citation
 
-If you use PEOD in your research, please cite our paper(forthcoming):
+If you use PEOD in your research, please cite our paper:
 
 ```bibtex
 @article{cui2025peod,
