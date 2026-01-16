@@ -68,17 +68,6 @@ Object detection for challenging scenarios increasingly relies on event cameras 
 
 </div>
 
-### Data Distribution
-
-<div style="overflow-x: auto;">
-
-| **Split** | **Annotations** | **Characteristics** |
-|-----------|-----------------|-------------------|
-| **Training** | 270k boxes | Diverse illumination & motion conditions |
-| **Testing** | 70k boxes | Held‑out sequences for benchmarking |
-
-</div>
-
 
 ## 🎯 Object Classes
 
@@ -89,6 +78,11 @@ The dataset includes six carefully selected object classes relevant to autonomou
 <div style="text-align: center; padding: 1rem; background: #f8f9fa; border-radius: 8px;">
 <h4>🚗 Car</h4>
 <p>Standard passenger vehicles</p>
+</div>
+
+<div style="text-align: center; padding: 1rem; background: #f8f9fa; border-radius: 8px;">
+<h4>🚶 Person</h4>
+<p>Pedestrians</p>
 </div>
 
 <div style="text-align: center; padding: 1rem; background: #f8f9fa; border-radius: 8px;">
@@ -109,11 +103,6 @@ The dataset includes six carefully selected object classes relevant to autonomou
 <div style="text-align: center; padding: 1rem; background: #f8f9fa; border-radius: 8px;">
 <h4>🛺 Three-wheeler</h4>
 <p>Auto-rickshaws, tricycles</p>
-</div>
-
-<div style="text-align: center; padding: 1rem; background: #f8f9fa; border-radius: 8px;">
-<h4>🚶 Person</h4>
-<p>Pedestrians</p>
 </div>
 
 </div>
