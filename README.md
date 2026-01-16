@@ -148,7 +148,7 @@ For questions, suggestions, or collaboration opportunities:
 
 **🌟 Star this repository if you find PEOD useful for your research! 🌟**
 
-[![GitHub stars](https://img.shields.io/github/stars/PEOD-dataset/PEOD-dataset?style=social)](https://github.com/PEOD-dataset/PEOD-dataset/stargazers)
-[![GitHub forks](https://img.shields.io/github/forks/PEOD-dataset/PEOD-dataset?style=social)](https://github.com/PEOD-dataset/PEOD-dataset/network/members)
+[![GitHub stars](https://img.shields.io/github/stars/bupt-ai-cz/PEOD?style=social)](https://github.com/bupt-ai-cz/PEOD/stargazers)
+[![GitHub forks](https://img.shields.io/github/forks/bupt-ai-cz/PEOD?style=social)](https://github.com/bupt-ai-cz/PEOD/network/members)
 
 </div>
