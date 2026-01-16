@@ -6,7 +6,7 @@
 
 [![Project Page](https://img.shields.io/badge/🌐_Project_Page-Visit_Our_Website-blue?style=for-the-badge)](https://EchosLiu.github.io/PEOD-dataset/)
 [![Paper](https://img.shields.io/badge/📄_Paper-AAAI_2026-red?style=for-the-badge)](https://EchosLiu.github.io/PEOD-dataset/)
-[![Dataset](https://img.shields.io/badge/📊_Dataset-Coming_Soon-green?style=for-the-badge)](https://EchosLiu.github.io/PEOD-dataset/)
+[![Dataset](https://img.shields.io/badge/📊_Dataset-Download-green?style=for-the-badge)](https://EchosLiu.github.io/PEOD-dataset/)
 
 [**🚀 View Interactive Demo**](https://EchosLiu.github.io/PEOD-dataset/) | [**📖 Documentation**](https://EchosLiu.github.io/PEOD-dataset/) | [**💾 Download**](https://pan.baidu.com/s/1Mj4tpGBFzSyhz6dZX0dDrw?pwd=g97d)
 
