@@ -6,7 +6,7 @@
 
 [![Project Page](https://img.shields.io/badge/🌐_Project_Page-Visit_Our_Website-blue?style=for-the-badge)](https://EchosLiu.github.io/PEOD-dataset/)
 [![Paper](https://img.shields.io/badge/📄_Paper-AAAI_2026-red?style=for-the-badge)](https://arxiv.org/abs/2511.08140)
-[![Dataset](https://img.shields.io/badge/📊_Dataset-Download-green?style=for-the-badge)](https://EchosLiu.github.io/PEOD-dataset/)
+[![Dataset](https://img.shields.io/badge/📊_Dataset-Download-green?style=for-the-badge)](https://drive.google.com/drive/folders/19W2EJUXXtVZA24_PuAQN_n275QjpuV89?usp=sharing)
 
 [**🚀 Visualization**](https://EchosLiu.github.io/PEOD-dataset/) | [**📥 Baidu Link**](https://pan.baidu.com/s/1Mj4tpGBFzSyhz6dZX0dDrw?pwd=g97d) | [**📥 Google Link**](https://drive.google.com/drive/folders/19W2EJUXXtVZA24_PuAQN_n275QjpuV89?usp=sharing)
 
