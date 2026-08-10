@@ -8,7 +8,7 @@
 [![Paper](https://img.shields.io/badge/📄_Paper-AAAI_2026-red?style=for-the-badge)](https://arxiv.org/abs/2511.08140)
 [![Dataset](https://img.shields.io/badge/📊_Dataset-Download-green?style=for-the-badge)](https://EchosLiu.github.io/PEOD-dataset/)
 
-[**🚀 View Interactive Demo**](https://EchosLiu.github.io/PEOD-dataset/) | [**📖 Documentation**](https://EchosLiu.github.io/PEOD-dataset/) | [**💾 Baidu Link**](https://pan.baidu.com/s/1Mj4tpGBFzSyhz6dZX0dDrw?pwd=g97d) | [**📑 Google Link**](https://drive.google.com/drive/folders/19W2EJUXXtVZA24_PuAQN_n275QjpuV89?usp=sharing)
+[**🚀 Visualization**](https://EchosLiu.github.io/PEOD-dataset/) | [**📥 Baidu Link**](https://pan.baidu.com/s/1Mj4tpGBFzSyhz6dZX0dDrw?pwd=g97d) | [**📥 Google Link**](https://drive.google.com/drive/folders/19W2EJUXXtVZA24_PuAQN_n275QjpuV89?usp=sharing)
 
 </div>
 
@@ -111,7 +111,7 @@ Our coaxial dual-camera system ensures precise spatial correspondence between ev
 
 ## 📥 Download
 
-> 🚧 **Dataset Download**: The PEOD dataset can be downloaded from [Baidu Netdisk](https://pan.baidu.com/s/1Mj4tpGBFzSyhz6dZX0dDrw?pwd=g97d) or [Google Drive](https://drive.google.com/drive/folders/19W2EJUXXtVZA24_PuAQN_n275QjpuV89?usp=sharing).
+> **Dataset Download**: The PEOD dataset can be downloaded from [Baidu Netdisk](https://pan.baidu.com/s/1Mj4tpGBFzSyhz6dZX0dDrw?pwd=g97d) or [Google Drive](https://drive.google.com/drive/folders/19W2EJUXXtVZA24_PuAQN_n275QjpuV89?usp=sharing).
 
 ## 📚 Citation
 
@@ -134,13 +134,13 @@ We welcome contributions to improve the dataset and benchmark! Please see our [p
 
 This dataset is released under MIT License. Please refer to our [License](https://github.com/bupt-ai-cz/PEOD/blob/main/Term%20of%20Use%20and%20License.md) for detailed licensing information.
 
-## 📞 Contact
+## Contact
 
 For questions, suggestions, or collaboration opportunities:
 
 - **Project Page**: [https://EchosLiu.github.io/PEOD-dataset/](https://EchosLiu.github.io/PEOD-dataset/)
 - **Issues**: Please use GitHub Issues for technical questions
-- **Email**: 3254827845@qq.com；3371665749@qq.com；786896078@qq.com；czhu@bupt.edu.cn
+- **Email**: 3254827845@qq.com；3371665749@qq.com；echosliu@outlook.com；czhu@bupt.edu.cn
 
 ---
 
