@@ -113,6 +113,27 @@ Our coaxial dual-camera system ensures precise spatial correspondence between ev
 
 > **Dataset Download**: The PEOD dataset can be downloaded from [Baidu Netdisk](https://pan.baidu.com/s/1Mj4tpGBFzSyhz6dZX0dDrw?pwd=g97d) or [Google Drive](https://drive.google.com/drive/folders/19W2EJUXXtVZA24_PuAQN_n275QjpuV89?usp=sharing).
 
+
+## 🧩 Benchmark Methods
+
+The following methods are included in the PEOD benchmark:
+
+- **[ICCV 2017] RetinaNet**: *Focal Loss for Dense Object Detection* [[Paper](https://arxiv.org/abs/1708.02002)] [[Code](https://github.com/bubbliiiing/retinanet-pytorch)]
+- **[arXiv 2021] YOLOX**: *YOLOX: Exceeding YOLO Series in 2021* [[Paper](https://arxiv.org/abs/2107.08430)] [[Code](https://github.com/Megvii-BaseDetection/YOLOX)]
+- **[ICRA 2022] FPN-Fusion**: *Fusing Event-based and RGB Camera for Robust Object Detection in Adverse Conditions* [[Paper](https://hal.science/hal-03591717)] [[Code](https://github.com/abhishek1411/event-rgb-fusion)]
+- **[ICRA 2023] RENet**: *RGB-Event Fusion for Moving Object Detection in Autonomous Driving* [[Paper](https://arxiv.org/abs/2209.08323)] [[Code](https://github.com/ZZY-Zhou/RENet)]
+- **[TPAMI 2023] SODFormer**: *Streaming Object Detection with Transformer Using Events and Frames* [[Paper](https://arxiv.org/abs/2308.04047)] [[Code](https://github.com/dianzl/SODFormer)]
+- **[CVPR 2023] RVT**: *Recurrent Vision Transformers for Object Detection with Event Cameras* [[Paper](https://arxiv.org/abs/2212.05598)] [[Code](https://github.com/uzh-rpg/RVT)]
+- **[CVPR 2023] YOLOv7**: *YOLOv7: Trainable Bag-of-Freebies Sets New State-of-the-Art for Real-Time Object Detectors* [[Paper](https://arxiv.org/abs/2207.02696)] [[Code](https://github.com/WongKinYiu/yolov7)]
+- **[CVPR 2024] SAST**: *Scene Adaptive Sparse Transformer for Event-based Object Detection* [[Paper](https://arxiv.org/abs/2404.01882)] [[Code](https://github.com/Peterande/SAST)]
+- **[ECCV 2024] SpikingYOLO**: *Integer-Valued Training and Spike-Driven Inference Spiking Neural Network for High-performance and Energy-efficient Object Detection* [[Paper](https://arxiv.org/abs/2407.20708)] [[Code](https://github.com/BICLab/SpikeYOLO)]
+- **[CVPR 2024] RT-DETR**: *DETRs Beat YOLOs on Real-time Object Detection* [[Paper](https://arxiv.org/abs/2304.08069)] [[Code](https://github.com/lyuwenyu/RT-DETR)]
+- **[ICRA 2024] EOLO**: *Chasing Day and Night: Towards Robust and Efficient All-Day Object Detection Guided by an Event Camera* [[Paper](https://arxiv.org/abs/2309.09297)] [[Code](https://github.com/SageCao1125/EOLO)]
+- **[T-ITS 2024] SFNet**: *Enhancing Traffic Object Detection in Variable Illumination with RGB-Event Fusion* [[Paper](https://arxiv.org/abs/2311.00436)] [[Code](https://github.com/Zizzzzzzz/SFNet_T-ITS24)]
+- **[ECCV 2024] CAFR**: *Embracing Events and Frames with Hierarchical Feature Refinement Network for Object Detection* [[Paper](https://arxiv.org/abs/2407.12582)] [[Code](https://github.com/HuCaoFighting/FRN)]
+- **[AAAI 2025] SMamba**: *SMamba: Sparse Mamba for Event-based Object Detection* [[Paper](https://arxiv.org/abs/2501.11971)] [[Code](https://github.com/Zizzzzzzz/SMamba_AAAI2025)]
+
+
 ## 📚 Citation
 
 If you use PEOD in your research, please cite our paper:
